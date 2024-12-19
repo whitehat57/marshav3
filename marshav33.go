@@ -185,7 +185,7 @@ func promptUserInput(promptText string) string {
 }
 
 func main() {
-	fmt.Println("HTTP Flood Tool with Rate-Limited Logs")
+	fmt.Println("MARSHA HTTP Flood Tool")
 	fmt.Println()
 
 	log := logrus.New()
