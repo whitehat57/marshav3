@@ -202,10 +202,10 @@ func main() {
 	var rateLimit time.Duration
 	fmt.Sscan(rateLimitInput, &rateLimit)
 
-	userAgentFile := promptUserInput("Enter path to user-agent file (e.g., user_agents.txt): ")
+	userAgentFile := "user-agent.txt"
 	userAgents, err := loadUserAgents(userAgentFile)
 	if err != nil {
-		log.WithError(err).Fatal("Failed to load user-agent file")
+		log.WithError(err).Fatal("Failed to load user-agent file: user-agent.txt")
 	}
 
 	log.WithFields(logrus.Fields{
