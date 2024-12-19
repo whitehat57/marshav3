@@ -185,7 +185,7 @@ func promptUserInput(promptText string) string {
 }
 
 func main() {
-	fmt.Println("MARSHA HTTP Flood Tool")
+	fmt.Println("HTTP Flood Tool with Rate-Limited Logs")
 	fmt.Println()
 
 	log := logrus.New()
@@ -202,10 +202,10 @@ func main() {
 	var rateLimit time.Duration
 	fmt.Sscan(rateLimitInput, &rateLimit)
 
-	userAgentFile := "user_agents.txt"
+	userAgentFile := promptUserInput("Enter path to user-agent file (e.g., user_agents.txt): ")
 	userAgents, err := loadUserAgents(userAgentFile)
 	if err != nil {
-		log.WithError(err).Fatal("Failed to load user-agent file: user_agents.txt")
+		log.WithError(err).Fatal("Failed to load user-agent file")
 	}
 
 	log.WithFields(logrus.Fields{
